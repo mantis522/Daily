@@ -60,11 +60,11 @@ def preprocessing(dataset):
 imdb_dataset = preprocessing(imdb_dataset)
 
 X_train, X_test = train_test_split(imdb_dataset, test_size=0.2, random_state=123)
-X_train.to_csv("train_data.csv", index=False)
-X_test.to_csv("test_data.csv", index=False)
+X_train.to_csv(r"D:\ruin\data\test\train_data.csv", index=False)
+X_test.to_csv(r"D:\ruin\data\test\test_data.csv", index=False)
 
 train_data, test_data = TabularDataset.splits(
-        path='practice', train='train_data.csv', test='test_data.csv', format='csv',
+        path='D:/ruin/data/test/', train='train_data.csv', test='test_data.csv', format='csv',
         fields=[('review', TEXT), ('sentiment', LABEL)], skip_header=True)
 
 print('훈련 샘플의 개수 : {}'.format(len(train_data)))

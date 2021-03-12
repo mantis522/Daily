@@ -75,16 +75,17 @@ print(vars(train_data[0]))
 TEXT.build_vocab(train_data, min_freq=5) # 단어 집합 생성
 LABEL.build_vocab(train_data)
 
-vocab_size = len(TEXT.vocab)
 n_classes = 2
-print('단어 집합의 크기 : {}'.format(vocab_size))
-print('클래스의 개수 : {}'.format(n_classes))
+
+vocab_size = len(TEXT.vocab)
 
 train_data, val_data = train_data.split(split_ratio=0.8)
 
 train_iter, val_iter, test_iter = data.BucketIterator.splits(
         (train_data, val_data, test_data), sort=False,batch_size=BATCH_SIZE,
         shuffle=True, repeat=False)
+
+
 
 class GRU(nn.Module):
     def __init__(self, n_layers, hidden_dim, n_vocab, embed_dim, n_classes, dropout_p=0.2):

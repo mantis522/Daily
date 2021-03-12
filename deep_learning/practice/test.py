@@ -1,15 +1,7 @@
-import torch
-import numpy as np
+import spacy
+import en_core_web_sm
 
-x = np.array([[0], [1], [2]])
+nlp = en_core_web_sm.load()
+doc = nlp(u"This is a sentence.")
 
-print(x.shape)
-print(x)
-
-y = torch.Tensor(x)
-print(y.shape)
-print(y)
-
-y = torch.unsqueeze(y, 1)
-print(y.shape)
-print(y)
+print(doc)

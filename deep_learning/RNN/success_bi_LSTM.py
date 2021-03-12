@@ -268,6 +268,6 @@ def main():
     test_acc, test_loss = test(model, test_iter, criterion=criterion)
     print('Eval => acc {:.3f}, loss {:4f}'.format(test_acc, test_loss))
 
-test = 'b'
+test = 'c'
 if __name__ == "__main__":
     main()
